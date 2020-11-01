@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type = "text/css">
+         @font-face {
+        font-family: 'S-CoreDream-3Light';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+    .all{
+        font-family: 'S-CoreDream-3Light';
+        text-align: center;
+        align-items: center;
+    }
+    .nav_bar{
+        height: 50px;
+        line-height: 50px;
+        color: white;
+        background-color: rgb(61, 61, 61);
+        margin-top: 30px;
+        border-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+
+        
+    }
+    .div2{
+        font-size: 20pt;
+        margin-left: 30px;
+        font-weight: bolder;
+        
+    }
+    .logoimage{
+        clear:both;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    </style>
+</head>
+<body>
+    <div class = "all">
+        <div class="logoimage">
+            <a href = "{% url 'main' %}">
+                <img src="../static/지구.png"  style="height: 150px; width: 150px; align-items: center;" >
+            </a>
+            
+        </div>
+
+
+
+        <div class = "nav_bar">
+            <div class = "div2">
+                <p style="margin-top: auto;">설명서 작성하기</p> 
+            </div>           
+        </div>
+
+
+
+
+
+        <div class="mygall">
+            <form action="{% url 'create' %}" enctype="multipart/form-data" method ="POST">
+                {% csrf_token %}
+                <p> 브랜드</p>
+                <select name="brand">
+                    {% for brand in brandobj %}
+                        <option value="{{brand.id}}">
+                            <h1>{{brand.name}}</h1>
+                        </option>
+                    {% endfor %}
+                </select>
+                <p> 제목</p>
+                <textarea cols="30" rows="1"  name ="title"></textarea>
+                <p> 글쓰기  </p>
+                <textarea cols="40" rows="6" name="text"></textarea>
+                <p> 제품 사진</p>
+                {{form.pic}}
+                <input type="submit" value="Add" name = "pic" >
+                <p>카테고리</p>
+                    <select name="category">
+                        {% for category in categoryobj %}
+                            <option value="{{category.id}}">
+                                <h1>{{category.name}}</h1>
+                            </option>
+                        {% endfor %}
+                    </select>
+            </form>
+
+        </div>
+    </div> 
+    
+</body>
+</html>

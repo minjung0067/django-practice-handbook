@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<body>
+
+
+    <div>
+        <form enctype="multipart/form-data" method="POST" >
+            {% csrf_token %}
+            <textarea cols="30" rows="1"  name ="name">{{update_key.brand}}</textarea>
+
+            <textarea cols="40" rows="6" name="about">{{update_key.title}}</textarea>
+
+            <img src="{{update_key.pic.url}}" style="width: 200px;" title="{{update_key.about}}">
+            {{form.pic}}
+            <input type="submit" value="Modify" name='submit'>
+        </form>
+    </div>
+</body>
+</html>
