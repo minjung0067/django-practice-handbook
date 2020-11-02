@@ -4,15 +4,21 @@
         
         <div class = "downdiv"> 
             <div class="category">
-                <h1 class="categoryy" style=" margin-left: 50px; color:black;" >{{this_category}}</h1>
+                <div class="categoryy">
+                    <h1 style="color:black;" >{{this_category}}</h1>
+                    <a  href="{% url 'brand' %}" style=" margin-left: 30px; text-decoration: none; color: black; font-size: 15px; ">     🠔🠔 뒤로 가기</a>
+                </div>
+            </div>
+            <div class="category">
                     {% for i in take_key %}
                     <div class="item_div">
-                        <a href="{% url 'detail' i.id %}">{{i.title}}</a>
+                        <a href="{% url 'detail' i.id %}" style="text-decoration: none;">{{i.title}}</a>
                         {% if i.pic %}
-                            <img style="width: 20px;height: 20px;" src="{{i.pic.url}}">
+                            <img style="width: 20px; height: 20px;" src="{{i.pic.url}}">
                         {% endif %}
                     </div>
                     {% endfor %}
+                
             </div>
         </div>
     </div>

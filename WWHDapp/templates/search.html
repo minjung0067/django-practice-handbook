@@ -4,23 +4,27 @@
         
         <div class = "downdiv"> 
             <div class="category">
-                {% for i in items %}
-                
-                    <div class = "my_button_margin">
-                        <div class = "card text-center" style = "min-width: 18rem;">
-                            <a href="{% url 'detail' i.id %}">{{i.title}}</a>
-                            <img class = "card-img-top my_image" src="{{i.pic.url}}" style="height: 100px; width: 100px;" alt="{{i.titel}}"></a>
-                            <h4>{{i.title}}</h4>
-                        </div>
-                    </div>
-                    {% empty %}
-                        <p class="text-center my_search_text">검색 결과 없음</p>
-                {% endfor %}
+                <div class="categoryy">
+                    <h1 style="color:black;" >검색결과</h1>
+                    <a  href="{% url 'brand' %}" style=" margin-left: 30px; text-decoration: none; color: black; font-size: 15px; ">     🠔🠔 뒤로 가기</a>
+                </div>
             </div>
 
-        </div>
-    </div>
+                
+            <div class="category">
+                {% for i in items %}
+                <div class="categoryy" style="margin-top: 100px;text-decoration: none; ">
+                    {% if i.pic %}
+                    <img style="width: 20px; height: 20px;" src="{{i.pic.url}}">
+                    {% endif %}
+                    <a href="{% url 'detail' i.id %}" style=" margin: 10px; text-decoration: none; font-size: 20px;">{{i.title}}</a>
 
+                </div>
+                {% empty %}
+                    <p style="position:absolute; margin: 300px; text-decoration: none;">검색 결과 없음</p>
+                {% endfor %}
+            </div>
+        </div>
     
 </body>
 </html>
