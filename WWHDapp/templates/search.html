@@ -1,152 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style type = "text/css"> 
-        @font-face {
-        font-family: 'S-CoreDream-3Light';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-        }
-    .all{
-        font-family: 'S-CoreDream-3Light';
-    }
-    .title{  
-        font-size: 10pt;
-        float: left;
-        position: fixed;
-        height: 100px;
-        margin-top: 60px;
-        margin-left: 10px;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    .div2{
-        font-size: 20pt;
-        float: left;
-        margin-left: 30px;
-        font-weight: bolder;
-        
-    }
-    .input{
-        width: 100%;
-        background-color: white;
-        align-items: center;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 10px;
-        border-radius: 70px;
-        height: 30px;
-        line-height: 30px;
-    }
-    .inputdiv{
-        text-decoration: none;
-        width: 80%;
-        border-radius: 40px;
-        border-style: unset ;
-        height: 20px;
-    }
-    .inside{
-        width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-        height: 30px;
-        border-radius: 40px;
-        padding: 2px;
-    }
-    .btn{
-        height: 25px;
-        width: 70px;
-        background-color:white;
-        border-radius: 30px;
-        font-style:unset;
-        border-style: none;
-    
-    }
+{% extends 'base.html' %}
 
-    .search{
-        margin-top: auto;
-        font-size: 15pt;
-        float: left;
-        background-color: white;
-        height: 40px;
-        margin-top: 11px;
-        border-radius: 20px;
-        width: 60px;
-        line-height: 30px;
-        padding: 10px 10px;
-    }
-    .div5{
-        font-size: 10pt;
-        width: 120px;
-        border-radius: 20px;
-        margin-left: 10px;
-    }
-    .nav_bar{
-        height: 50px;
-        line-height: 50px;
-        color: white;
-        background-color: rgb(61, 61, 61);
-        margin-top: 10px;
-        border-radius: 20px;
-        text-align: center;
-
-        
-    }
-    .downdiv{
-        height: 500px;
-        background-color:whitesmoke;
-        border-style:ridge;
-        margin-top: 10px;
-        border-radius: 20px;
-    
-    }
-    .logoimage{
-        clear:both;
-        margin-left: 45%;
-        margin-right:45%;
-        padding: 20px;
-        
-    }
-    .upperdiv{
-        height: 120px;
-        text-align: center;
-    }
-    .category{
-        align-items: center;
-        text-decoration: none;
-    }
-    </style>
-</head>
-    {% load static %}
-    <div class = "all" style="width: 80%; margin-left:auto; margin-right:auto;">
-        <div class = "upperdiv">
-            <div class = "title">
-                <h1 style="font-family: 'S-CoreDream-3Light';">검색결과</h1> 
-            </div>
-            <div class="logoimage">
-                <a href = "{% url 'main' %}">
-                    <img src="../static/지구.png"  style="height: 100px; width: 100px; align-items: center;" >
-                </a>
-                
-            </div>
-        </div>
-        
-        <div class = "nav_bar">
-            <div class = "div2">
-                <p style="margin-top: auto;">제품 목록</p> 
-            </div>
-            <div class = "inside" >
-                <form class="input" action="{% url 'searchResult' %} " method="get">
-                    {% csrf_token %}
-                    <input class="inputdiv" type="search" name="q" >
-                    <button class="btn" type="submit" style="text-decoration: none; color: black;">검색</button>
-                </form>
-            
-            </div>            
-        </div>
+{% block contents %}
         
         <div class = "downdiv"> 
             <div class="category">
@@ -164,14 +18,11 @@
                 {% endfor %}
             </div>
 
-
-
-
-
-
         </div>
     </div>
 
     
 </body>
 </html>
+
+{% endblock %}
