@@ -69,3 +69,4 @@ def searchResult(request):
         if query== "":
             item = None
     return render(request, 'search.html',{'items':item, 'query':query})
+

@@ -3,17 +3,17 @@
 {% block contents %}
         
         <div class = "downdiv"> 
-            <div class="category">
+            <div class="category" style="margin-bottom: 20px;">
                 <div class="categoryy">
-                    <h1 style="color:black;" >검색결과</h1>
-                    <a  href="{% url 'brand' %}" style=" margin-left: 30px; text-decoration: none; color: black; font-size: 15px; ">     🠔🠔 뒤로 가기</a>
+                    <h1 style="color:black; margin-bottom: 20px;" >검색결과</h1>
+                    <a  href="{% url 'brand' %}" style=" margin-bottom: 20px; margin-left: 30px; text-decoration: none; color: black; font-size: 15px; ">     🠔🠔 뒤로 가기</a>
                 </div>
             </div>
 
                 
-            <div class="category">
+            <div class="category" style="margin-top: 80px;">
                 {% for i in items %}
-                <div class="categoryy" style="margin-top: 100px;text-decoration: none; ">
+                <div class="category" style="margin-left: 20px; margin-top: 10px; text-decoration: none; ">
                     {% if i.pic %}
                     <img style="width: 20px; height: 20px;" src="{{i.pic.url}}">
                     {% endif %}
@@ -21,7 +21,7 @@
 
                 </div>
                 {% empty %}
-                    <p style="position:absolute; margin: 300px; text-decoration: none;">검색 결과 없음</p>
+                    <p style="position:absolute; margin: 100px; text-decoration: none;">검색 결과 없음</p>
                 {% endfor %}
             </div>
         </div>
