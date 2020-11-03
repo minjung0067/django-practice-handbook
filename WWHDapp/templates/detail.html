@@ -8,6 +8,7 @@
                 <img style="width: 250px;height: 250px;float: left;border-style:ridge;border-radius: 20px;margin-left: 10px;margin-right: 20px;" src="{{detail_key.pic.url}}">
                 {% endif %}
             </div>
+            {% if user.is_authenticated %}
             <div class = "textdiv" >
                 <p style="margin-top: 30px;margin-left: 280px;font-size: 15pt;font-weight: 800;">제품 설명</p>
                 <p style="margin-top: 10px;margin-left: 10px;"> {{detail_key.text}}</p>
@@ -15,6 +16,7 @@
                 <a  href="{% url 'delete' detail_key.id %}" style=" text-decoration: none; color: black; font-size: 15px; "> 삭제 </a>
                 
             </div>    
+            {% endif %}
         </div>
     </div>
 

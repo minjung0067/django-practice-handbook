@@ -28,4 +28,7 @@ urlpatterns = [
     path('incategory/<int:category_id>',WWHDapp.views.incategory, name = 'incategory'),
     path('search/',WWHDapp.views.searchResult, name = 'searchResult'),
     path('detail/<int:detail_id>',WWHDapp.views.detail, name='detail'),
+    path('login/', WWHDapp.views.login, name='login'),
+    path('signup/', WWHDapp.views.signup, name='signup'),
+    path('logout/', WWHDapp.views.logout, name='logout'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -149,9 +149,34 @@
         display: flex; 
         flex-direction: columns;
     }
+    .user{
+        position: fixed;
+        top: 1px;
+        display: flex; 
+        flex-direction: columns;
+        text-decoration: none;
+        text-align: center;
+        align-items: center;
+        margin: 20px;
+        font-size: 13px;
+    }
     </style>
 </head>
     {% load static %}
+
+    <div class="user">
+        {% if user.is_authenticated %}
+        <p>{{ user.username }}님 반갑습니다.  </p>    <br>
+        <a style="text-decoration: none;" href="javascript:{document.getElementById('logout').submit()}">  로그아웃</a>
+        <form id="logout" style="text-decoration: none;" method="POST" action="{% url 'logout' %}">
+            {% csrf_token %} <input type="hidden" />
+        </form>
+        {% else %}
+            <a style="text-decoration: none;" href="{% url 'signup' %}">회원가입</a>
+            <a style="text-decoration: none;" href="{% url 'login' %}">로그인</a>
+        {% endif %}
+    </div>
+
     <div class = "all" style="width: 80%; margin-left:auto; margin-right:auto;">
         <div class = "upperdiv">
             <div class = "title">
