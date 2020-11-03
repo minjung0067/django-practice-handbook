@@ -11,6 +11,9 @@
             <div class = "textdiv" >
                 <p style="margin-top: 30px;margin-left: 280px;font-size: 15pt;font-weight: 800;">제품 설명</p>
                 <p style="margin-top: 10px;margin-left: 10px;"> {{detail_key.text}}</p>
+                <a  href="{% url 'update' detail_key.id %}" style=" text-decoration: none; color: black; font-size: 15px; "> 수정 </a>
+                <a  href="{% url 'delete' detail_key.id %}" style=" text-decoration: none; color: black; font-size: 15px; "> 삭제 </a>
+                
             </div>    
         </div>
     </div>

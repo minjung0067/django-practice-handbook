@@ -23,17 +23,20 @@ def detail(request, detail_id):
     return render(request, 'detail.html', {"detail_key":detail})
 
 def update(request,update_id):
-    update_obj = get_object_or_404(Post,pk=update_id)
     form = createForm()
+    update_obj = get_object_or_404(Post,pk=update_id)
+    category = Category.objects.all()
+    brand = Brand.objects.all()
     if request.method == "POST":
-        update_obj.name = request.POST['name']
-        update_obj.about = request.POST['about']
+        update_obj.brand = brand.get(id=brand_id)
+        update_obj.title = request.POST['title']
+        update_obj.text = request.POST['text']
         update_obj.pic = request.FILES['pic']
         update_obj.save()
         return redirect(reverse('main'))
     else:
         pass
-    return render(request, 'update.html', {"update_key":update_obj,"form":form})
+    return render(request, 'update.html', {"update_key":update_obj, "form":form, "categoryobj":category, "brandobj":brand})
 
 def create(request):
     form = PostModelForm()
